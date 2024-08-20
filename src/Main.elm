@@ -1,50 +1,36 @@
-module Main exposing (Model, Msg, main, view)
+module Main exposing (main, view)
 
 import Browser
-import Html exposing (Html, button, div, img, text)
-import Html.Attributes exposing (alt, class, src)
+import Html exposing (Html, button, div, text)
 import Html.Events exposing (onClick)
-import VitePluginHelper exposing (asset)
-
-
-type alias Model =
-    { count : Int }
-
-
-initialModel : Model
-initialModel =
-    { count = 0 }
-
-
-type Msg
-    = Increment
-    | Decrement
-
-
-update : Msg -> Model -> Model
-update msg model =
-    case msg of
-        Increment ->
-            { model | count = model.count + 1 }
-
-        Decrement ->
-            { model | count = model.count - 1 }
+import Robot exposing (Model, Msg(..), initModel, rotateToLeft, rotateToRight, viewRobot)
 
 
 view : Model -> Html Msg
 view model =
     div []
-        [ img [ src <| asset "/src/assets/logo.png", alt "Logo", class "logo" ] []
-        , button [ onClick Increment ] [ text "+1" ]
-        , div [] [ text <| String.fromInt model.count ]
-        , button [ onClick Decrement ] [ text "-1" ]
+        [ viewRobot model.direction
+        , div []
+            [ button [ onClick RotateLeft ] [ text "Rotate ↺" ]
+            , button [ onClick RotateRight ] [ text "Rotate ↻" ]
+            ]
         ]
+
+
+update : Msg -> Model -> Model
+update msg model =
+    case msg of
+        RotateLeft ->
+            { model | direction = rotateToLeft model.direction }
+
+        RotateRight ->
+            { model | direction = rotateToRight model.direction }
 
 
 main : Program () Model Msg
 main =
     Browser.sandbox
-        { init = initialModel
-        , view = view
+        { init = initModel
         , update = update
+        , view = view
         }
