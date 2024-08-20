@@ -1,11 +1,11 @@
-module Main exposing (main, view)
+module Main exposing (main, update, view)
 
 import Browser
 import Grid exposing (viewGrid)
 import Html exposing (Html, button, div, text)
 import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
-import Robot exposing (Model, Msg(..), initModel, rotateToLeft, rotateToRight, viewRobot)
+import Robot exposing (Model, Msg(..), initModel, moveTo, rotateToLeft, rotateToRight)
 
 
 view : Model -> Html Msg
@@ -14,6 +14,7 @@ view model =
         [ div [ class "grid" ] (viewGrid model)
         , div [ class "btn-group" ]
             [ button [ onClick RotateLeft ] [ text "Rotate ↺" ]
+            , button [ onClick MoveForward ] [ text "Go Forward" ]
             , button [ onClick RotateRight ] [ text "Rotate ↻" ]
             ]
         ]
@@ -27,6 +28,9 @@ update msg model =
 
         RotateRight ->
             { model | direction = rotateToRight model.direction }
+
+        MoveForward ->
+            { model | position = moveTo model.position model.direction }
 
 
 main : Program () Model Msg

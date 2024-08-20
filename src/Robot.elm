@@ -1,4 +1,4 @@
-module Robot exposing (Direction, Model, Msg(..), initModel, rotateToLeft, rotateToRight, viewRobot)
+module Robot exposing (Direction, Model, Msg(..), initModel, moveTo, rotateToLeft, rotateToRight, viewRobot)
 
 import Html exposing (Html, text)
 
@@ -25,6 +25,7 @@ type alias Model =
 type Msg
     = RotateLeft
     | RotateRight
+    | MoveForward
 
 
 initModel : Model
@@ -64,6 +65,22 @@ rotateToRight dir =
 
         West ->
             North
+
+
+moveTo : Position -> Direction -> Position
+moveTo pos dir =
+    case dir of
+        North ->
+            { pos | y = max 0 (pos.y - 1) }
+
+        East ->
+            { pos | x = min 4 (pos.x + 1) }
+
+        South ->
+            { pos | y = min 4 (pos.y + 1) }
+
+        West ->
+            { pos | x = max 0 (pos.x - 1) }
 
 
 viewRobot : Direction -> Html msg
