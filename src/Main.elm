@@ -3,7 +3,7 @@ module Main exposing (main, update, view)
 import Browser
 import Browser.Events exposing (onKeyDown)
 import Grid exposing (viewGrid)
-import Html exposing (Html, button, div, h1, header, img, text)
+import Html exposing (Html, button, div, h1, h2, header, img, p, text)
 import Html.Attributes exposing (alt, class, src)
 import Html.Events exposing (onClick)
 import Json.Decode as Decode
@@ -23,6 +23,12 @@ view model =
             [ button [ onClick RotateLeft ] [ text "Rotate ↺" ]
             , button [ onClick MoveForward ] [ text "Go Forward" ]
             , button [ onClick RotateRight ] [ text "Rotate ↻" ]
+            ]
+        , div [ class "keyboard-instruction" ]
+            [ h2 [] [ text "⌨️ Keyboard Usage" ]
+            , p [] [ text "Press 'w' to Go Forward" ]
+            , p [] [ text "Press 'a' to Rotate to the Left ↺" ]
+            , p [] [ text "Press 'd' to Rotate to the Right ↻" ]
             ]
         ]
 

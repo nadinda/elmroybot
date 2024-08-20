@@ -144,3 +144,12 @@ button:focus-visible {
   width: 90%;
   height: 90%;
 }
+
+.keyboard-instruction {
+  background-color: #555f53;
+  color: #eaeaea;
+  border-radius: 8px;
+  width: 24rem;
+  margin-bottom: 20px;
+  padding: 1rem;
+}
