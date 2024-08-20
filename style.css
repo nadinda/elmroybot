@@ -20,19 +20,19 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #555f53;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #555f53;
 }
 
-body {
+body,
+html {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 h1 {
@@ -41,8 +41,9 @@ h1 {
 }
 
 button {
+  color: #555f53;
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid #555f53;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -51,9 +52,13 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  color: #efeae5;
+  border-color: #e15a1d;
+  background-color: #e15a1d;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -72,19 +77,31 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #555f53;
+    background-color: #eaeaea;
   }
   a:hover {
-    color: #747bff;
+    color: #5d736f;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #eaeaea;
   }
 }
 
-.logo {
-  width: 20px;
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.header img {
+  height: 60px;
+}
+
+.header h1 {
+  margin: 0 20px;
 }
 
 .container {
@@ -102,8 +119,8 @@ button:focus-visible {
   gap: 1px;
   width: 100vw;
   height: 100vw;
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 .tile {
@@ -124,7 +141,6 @@ button:focus-visible {
 }
 
 .robot {
-  background-color: #e15a1d;
   width: 90%;
   height: 90%;
 }
