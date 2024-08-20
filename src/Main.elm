@@ -1,16 +1,18 @@
 module Main exposing (main, view)
 
 import Browser
+import Grid exposing (viewGrid)
 import Html exposing (Html, button, div, text)
+import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
 import Robot exposing (Model, Msg(..), initModel, rotateToLeft, rotateToRight, viewRobot)
 
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ viewRobot model.direction
-        , div []
+    div [ class "container" ]
+        [ div [ class "grid" ] (viewGrid model)
+        , div [ class "btn-group" ]
             [ button [ onClick RotateLeft ] [ text "Rotate ↺" ]
             , button [ onClick RotateRight ] [ text "Rotate ↻" ]
             ]
