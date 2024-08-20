@@ -1,4 +1,4 @@
-module Robot exposing (Direction, Model, Msg(..), initModel, moveTo, rotateToLeft, rotateToRight, viewRobot)
+module Robot exposing (Direction(..), Model, Msg(..), initModel, moveTo, rotateToLeft, rotateToRight, viewRobot)
 
 import Html exposing (Html, img)
 import Html.Attributes exposing (alt, class, src, style)

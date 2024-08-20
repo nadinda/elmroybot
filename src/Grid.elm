@@ -1,4 +1,4 @@
-module Grid exposing (..)
+module Grid exposing (viewGrid)
 
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (class)
