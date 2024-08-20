@@ -1,6 +1,8 @@
 module Robot exposing (Direction, Model, Msg(..), initModel, moveTo, rotateToLeft, rotateToRight, viewRobot)
 
-import Html exposing (Html, text)
+import Html exposing (Html, img)
+import Html.Attributes exposing (alt, class, src, style)
+import VitePluginHelper exposing (asset)
 
 
 type alias Position =
@@ -85,15 +87,19 @@ moveTo pos dir =
 
 viewRobot : Direction -> Html msg
 viewRobot dir =
-    case dir of
-        North ->
-            text "⬆️"
+    let
+        rotation =
+            case dir of
+                East ->
+                    "rotate(0deg)"
 
-        East ->
-            text "➡️"
+                South ->
+                    "rotate(90deg)"
 
-        South ->
-            text "⬇️"
+                West ->
+                    "rotate(180deg)"
 
-        West ->
-            text "⬅️"
+                North ->
+                    "rotate(270deg)"
+    in
+    img [ src <| asset "/src/assets/robot.png", style "transform" rotation, class "robot", alt "Robot" ] []
