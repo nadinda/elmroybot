@@ -2,9 +2,9 @@
 
 An application for controlling a robot to move in a grid. It is built using Elm and Vite (courtesy of `vite-plugin-elm`).
 
-[Live site](https://github.com/nadinda/)
+[Live site](https://elmroy.netlify.app/)
 
-## Get Started
+## Running the project
 
 ```bash
 # Clone the project locally
@@ -16,8 +16,17 @@ npm install
 npm run dev
 ```
 
-## Learn More
+## Running the test suite
 
-For more information about Vite, check out [Vite's official documentation.](https://vitejs.dev/)
+```bash
+# It will run tests/TestSpec.elm using elm-test-rs
+npm test
+```
 
-To learn more about Elm, check out [Elm's official homepage](https://elm-lang.org/).
+## Demo
+![Elmroybot](https://github.com/user-attachments/assets/767764f8-07d8-42ce-ba43-84004856e065)
+
+
+## About author
+
+**Nadinda Rachmat** - [Connect with me on Linkedin](https://www.linkedin.com/in/eraulianr/)
