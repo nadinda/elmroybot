@@ -28,6 +28,7 @@ type Msg
     = RotateLeft
     | RotateRight
     | MoveForward
+    | KeyboardEvent String
 
 
 initModel : Model
